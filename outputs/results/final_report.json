@@ -1,0 +1,120 @@
+{
+  "dataset": "m5",
+  "n_series": 20,
+  "forecast_summary": [
+    {
+      "model": "DeepAR",
+      "MASE": 3.769452910342126,
+      "WAPE": 244.84670323582992,
+      "RMSE": 2.1004211582520194,
+      "MAE": 1.5915436617768515
+    },
+    {
+      "model": "LSTM",
+      "MASE": 2.500978678664792,
+      "WAPE": 141.09184436366965,
+      "RMSE": 1.4700993721284514,
+      "MAE": 1.0909647076610842
+    },
+    {
+      "model": "LightGBM",
+      "MASE": 2.9601390839522095,
+      "WAPE": 211.07889816269727,
+      "RMSE": 1.5028013992480314,
+      "MAE": 1.1806436319809592
+    },
+    {
+      "model": "N-BEATS",
+      "MASE": 2.7153142147874023,
+      "WAPE": 173.37965621355085,
+      "RMSE": 1.4520464446878563,
+      "MAE": 1.1423738043353868
+    },
+    {
+      "model": "Prophet",
+      "MASE": 2.0420389511483386,
+      "WAPE": 116.82339108724878,
+      "RMSE": 1.4231773277689983,
+      "MAE": 1.0493955653803944
+    },
+    {
+      "model": "SARIMA",
+      "MASE": 2.1362305712531517,
+      "WAPE": 121.78674969571634,
+      "RMSE": 1.4078825187771513,
+      "MAE": 1.0590863699572703
+    },
+    {
+      "model": "TFT",
+      "MASE": 2.6792853839239483,
+      "WAPE": 148.13542272415478,
+      "RMSE": 1.9462650580389163,
+      "MAE": 1.4078668357861708
+    }
+  ],
+  "inventory_summary": [
+    {
+      "model": "DeepAR",
+      "service_level": 0.9269697642678967,
+      "avg_inventory": 10.13677715798646,
+      "stockout_events": 1.75,
+      "total_cost": 389.15813091471983,
+      "safety_stock": 3.786666078033247
+    },
+    {
+      "model": "LSTM",
+      "service_level": 0.8978301758075522,
+      "avg_inventory": 7.5824674169203075,
+      "stockout_events": 1.85,
+      "total_cost": 306.3519295189021,
+      "safety_stock": 2.950157334309601
+    },
+    {
+      "model": "LightGBM",
+      "service_level": 0.9485363160856941,
+      "avg_inventory": 9.328615135798678,
+      "stockout_events": 1.15,
+      "total_cost": 360.40326895058985,
+      "safety_stock": 3.022263537961975
+    },
+    {
+      "model": "N-BEATS",
+      "service_level": 0.9575531970970685,
+      "avg_inventory": 9.896898681526302,
+      "stockout_events": 1.05,
+      "total_cost": 377.831391299384,
+      "safety_stock": 2.957880925366454
+    },
+    {
+      "model": "Prophet",
+      "service_level": 0.9063745029594192,
+      "avg_inventory": 7.25799779421741,
+      "stockout_events": 1.8,
+      "total_cost": 298.01656413524137,
+      "safety_stock": 2.8620437130650727
+    },
+    {
+      "model": "SARIMA",
+      "service_level": 0.9153965371037669,
+      "avg_inventory": 7.574436007540908,
+      "stockout_events": 1.65,
+      "total_cost": 306.7729449186023,
+      "safety_stock": 2.918720574279628
+    },
+    {
+      "model": "TFT",
+      "service_level": 0.9210399575551012,
+      "avg_inventory": 7.917398502119751,
+      "stockout_events": 1.85,
+      "total_cost": 325.1655627364799,
+      "safety_stock": 3.8313150597773586
+    }
+  ],
+  "friedman_mase": {
+    "statistic": 53.549999999999955,
+    "p_value": 9.090881155155667e-10
+  },
+  "best_mase_model": "Prophet",
+  "best_service_level_model": "N-BEATS",
+  "best_cost_model": "Prophet"
+}

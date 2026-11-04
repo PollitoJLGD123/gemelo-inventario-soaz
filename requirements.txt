@@ -1,0 +1,22 @@
+streamlit>=1.35.0
+simpy>=4.1.0
+pandas>=2.2.0
+numpy>=1.26.0
+scipy>=1.13.0
+plotly>=5.22.0
+openpyxl>=3.1.0
+# Para la integración con el sistema web de la tesis (aún no requeridas por el motor):
+# psycopg2-binary>=2.9.9
+# sqlalchemy>=2.0.0
+
+# Copiloto de escenarios (módulo opcional). Si no están instaladas, la pestaña
+# se desactiva sola y las otras siete funcionan igual. Se fija el conjunto
+# mínimo a propósito: langchain-community no se usa y es lo que pesa.
+langgraph>=1.2.0
+langchain>=1.4.0
+langchain-anthropic>=1.7.0
+
+# Pronóstico Prophet sobre las series de Favorita (pestaña Prophet).
+# La especificación es la de models/prophet.pkl: semanal orden 5 y anual.
+prophet==1.3.0
+lightgbm>=4.0

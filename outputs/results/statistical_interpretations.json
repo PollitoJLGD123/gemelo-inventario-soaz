@@ -1,0 +1,365 @@
+{
+  "friedman": "**Prueba de Friedman** sobre MASE (20 series × 7 modelos)\n\n- Estadístico χ² = **53.5500**, p-valor = **0.000000** (α = 0.05).\n\n- **Conclusión:** Se **rechaza** H₀ (rendimiento igual entre modelos). Existe evidencia de que **al menos un modelo difiere** significativamente del resto.\n\n- **Ranking por MASE promedio:** Prophet (2.042) → SARIMA (2.136) → LSTM (2.501) → TFT (2.679) → N-BEATS (2.715) → LightGBM (2.960) → DeepAR (3.769). Mejor global: **Prophet**.\n\n- **Alcance:** Friedman es un test **omnibus** (global). No indica qué pares difieren; para eso se usan Wilcoxon y Diebold-Mariano pareados.",
+  "wilcoxon": [
+    {
+      "model_a": "DeepAR",
+      "model_b": "LSTM",
+      "statistic": 0.0,
+      "p_value": 1.9073486328125e-06,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs LSTM:** p = 0.0000 → **Diferencia significativa**. **LSTM** presenta menor MASE (2.501 vs 3.769, Δ ≈ 50.7%). La mediana de pérdida de LSTM es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "LightGBM",
+      "statistic": 32.0,
+      "p_value": 0.00485992431640625,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs LightGBM:** p = 0.0049 → **Diferencia significativa**. **LightGBM** presenta menor MASE (2.960 vs 3.769, Δ ≈ 27.3%). La mediana de pérdida de LightGBM es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "N-BEATS",
+      "statistic": 14.0,
+      "p_value": 0.000209808349609375,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs N-BEATS:** p = 0.0002 → **Diferencia significativa**. **N-BEATS** presenta menor MASE (2.715 vs 3.769, Δ ≈ 38.8%). La mediana de pérdida de N-BEATS es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "Prophet",
+      "statistic": 1.0,
+      "p_value": 3.814697265625e-06,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs Prophet:** p = 0.0000 → **Diferencia significativa**. **Prophet** presenta menor MASE (2.042 vs 3.769, Δ ≈ 84.6%). La mediana de pérdida de Prophet es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "SARIMA",
+      "statistic": 0.0,
+      "p_value": 1.9073486328125e-06,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs SARIMA:** p = 0.0000 → **Diferencia significativa**. **SARIMA** presenta menor MASE (2.136 vs 3.769, Δ ≈ 76.5%). La mediana de pérdida de SARIMA es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "TFT",
+      "statistic": 36.0,
+      "p_value": 0.00830841064453125,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs TFT:** p = 0.0083 → **Diferencia significativa**. **TFT** presenta menor MASE (2.679 vs 3.769, Δ ≈ 40.7%). La mediana de pérdida de TFT es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "LightGBM",
+      "statistic": 57.0,
+      "p_value": 0.0758514404296875,
+      "significativo": false,
+      "interpretacion": "**LSTM vs LightGBM:** p = 0.0759 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LSTM = 2.501, LightGBM = 2.960. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "N-BEATS",
+      "statistic": 43.0,
+      "p_value": 0.01923370361328125,
+      "significativo": true,
+      "interpretacion": "**LSTM vs N-BEATS:** p = 0.0192 → **Diferencia significativa**. **LSTM** presenta menor MASE (2.501 vs 2.715, Δ ≈ 8.6%). La mediana de pérdida de LSTM es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "Prophet",
+      "statistic": 76.0,
+      "p_value": 0.2942523956298828,
+      "significativo": false,
+      "interpretacion": "**LSTM vs Prophet:** p = 0.2943 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LSTM = 2.501, Prophet = 2.042. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "SARIMA",
+      "statistic": 81.0,
+      "p_value": 0.38837623596191406,
+      "significativo": false,
+      "interpretacion": "**LSTM vs SARIMA:** p = 0.3884 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LSTM = 2.501, SARIMA = 2.136. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "TFT",
+      "statistic": 53.0,
+      "p_value": 0.05316925048828125,
+      "significativo": false,
+      "interpretacion": "**LSTM vs TFT:** p = 0.0532 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LSTM = 2.501, TFT = 2.679. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "N-BEATS",
+      "statistic": 75.0,
+      "p_value": 0.2773551940917969,
+      "significativo": false,
+      "interpretacion": "**LightGBM vs N-BEATS:** p = 0.2774 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LightGBM = 2.960, N-BEATS = 2.715. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "Prophet",
+      "statistic": 36.0,
+      "p_value": 0.00830841064453125,
+      "significativo": true,
+      "interpretacion": "**LightGBM vs Prophet:** p = 0.0083 → **Diferencia significativa**. **Prophet** presenta menor MASE (2.042 vs 2.960, Δ ≈ 45.0%). La mediana de pérdida de Prophet es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "SARIMA",
+      "statistic": 35.0,
+      "p_value": 0.0072956085205078125,
+      "significativo": true,
+      "interpretacion": "**LightGBM vs SARIMA:** p = 0.0073 → **Diferencia significativa**. **SARIMA** presenta menor MASE (2.136 vs 2.960, Δ ≈ 38.6%). La mediana de pérdida de SARIMA es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "TFT",
+      "statistic": 104.0,
+      "p_value": 0.9854354858398438,
+      "significativo": false,
+      "interpretacion": "**LightGBM vs TFT:** p = 0.9854 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: LightGBM = 2.960, TFT = 2.679. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "Prophet",
+      "statistic": 26.0,
+      "p_value": 0.0019855499267578125,
+      "significativo": true,
+      "interpretacion": "**N-BEATS vs Prophet:** p = 0.0020 → **Diferencia significativa**. **Prophet** presenta menor MASE (2.042 vs 2.715, Δ ≈ 33.0%). La mediana de pérdida de Prophet es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "SARIMA",
+      "statistic": 17.0,
+      "p_value": 0.0003948211669921875,
+      "significativo": true,
+      "interpretacion": "**N-BEATS vs SARIMA:** p = 0.0004 → **Diferencia significativa**. **SARIMA** presenta menor MASE (2.136 vs 2.715, Δ ≈ 27.1%). La mediana de pérdida de SARIMA es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "TFT",
+      "statistic": 97.0,
+      "p_value": 0.7841262817382812,
+      "significativo": false,
+      "interpretacion": "**N-BEATS vs TFT:** p = 0.7841 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: N-BEATS = 2.715, TFT = 2.679. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "Prophet",
+      "model_b": "SARIMA",
+      "statistic": 69.0,
+      "p_value": 0.1893482208251953,
+      "significativo": false,
+      "interpretacion": "**Prophet vs SARIMA:** p = 0.1893 → **Sin diferencia significativa** en MASE (α = 0.05). Promedios: Prophet = 2.042, SARIMA = 2.136. Ambos son estadísticamente equivalentes en este conjunto de series."
+    },
+    {
+      "model_a": "Prophet",
+      "model_b": "TFT",
+      "statistic": 22.0,
+      "p_value": 0.0010166168212890625,
+      "significativo": true,
+      "interpretacion": "**Prophet vs TFT:** p = 0.0010 → **Diferencia significativa**. **Prophet** presenta menor MASE (2.042 vs 2.679, Δ ≈ 31.2%). La mediana de pérdida de Prophet es inferior en las series evaluadas."
+    },
+    {
+      "model_a": "SARIMA",
+      "model_b": "TFT",
+      "statistic": 24.0,
+      "p_value": 0.0014324188232421875,
+      "significativo": true,
+      "interpretacion": "**SARIMA vs TFT:** p = 0.0014 → **Diferencia significativa**. **SARIMA** presenta menor MASE (2.136 vs 2.679, Δ ≈ 25.4%). La mediana de pérdida de SARIMA es inferior en las series evaluadas."
+    }
+  ],
+  "diebold_mariano": [
+    {
+      "model_a": "DeepAR",
+      "model_b": "LSTM",
+      "statistic": 3.6426122226677027,
+      "p_value": 0.00026988525412185993,
+      "mean_diff": 4.730778191118834,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs LSTM:** DM = 3.643, p = 0.0003, Δmedia = +4.7308 → **Diferencia significativa**. **LSTM** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "LightGBM",
+      "statistic": 3.591423551003142,
+      "p_value": 0.0003288766520135322,
+      "mean_diff": 4.705052989848365,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs LightGBM:** DM = 3.591, p = 0.0003, Δmedia = +4.7051 → **Diferencia significativa**. **LightGBM** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "N-BEATS",
+      "statistic": 3.6495635909673694,
+      "p_value": 0.00026268620691771716,
+      "mean_diff": 4.852301330823089,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs N-BEATS:** DM = 3.650, p = 0.0003, Δmedia = +4.8523 → **Diferencia significativa**. **N-BEATS** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "Prophet",
+      "statistic": 3.86934523112902,
+      "p_value": 0.00010912802845064462,
+      "mean_diff": 4.722646407458556,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs Prophet:** DM = 3.869, p = 0.0001, Δmedia = +4.7226 → **Diferencia significativa**. **Prophet** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "SARIMA",
+      "statistic": 3.643190609891413,
+      "p_value": 0.0002692792769503072,
+      "mean_diff": 4.928127116189272,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs SARIMA:** DM = 3.643, p = 0.0003, Δmedia = +4.9281 → **Diferencia significativa**. **SARIMA** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "DeepAR",
+      "model_b": "TFT",
+      "statistic": 2.474566573021878,
+      "p_value": 0.013339795641722052,
+      "mean_diff": 1.8428612141239435,
+      "significativo": true,
+      "interpretacion": "**DeepAR vs TFT:** DM = 2.475, p = 0.0133, Δmedia = +1.8429 → **Diferencia significativa**. **TFT** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "LightGBM",
+      "statistic": -0.1682143131401453,
+      "p_value": 0.8664146811342086,
+      "mean_diff": -0.025725201270467686,
+      "significativo": false,
+      "interpretacion": "**LSTM vs LightGBM:** DM = -0.168, p = 0.8664 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (-0.0257) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "N-BEATS",
+      "statistic": 0.9094761909081167,
+      "p_value": 0.36309882000737126,
+      "mean_diff": 0.12152313970425464,
+      "significativo": false,
+      "interpretacion": "**LSTM vs N-BEATS:** DM = 0.909, p = 0.3631 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.1215) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "Prophet",
+      "statistic": -0.05328024270307202,
+      "p_value": 0.9575086218777806,
+      "mean_diff": -0.008131783660276781,
+      "significativo": false,
+      "interpretacion": "**LSTM vs Prophet:** DM = -0.053, p = 0.9575 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (-0.0081) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "SARIMA",
+      "statistic": 2.340778274825373,
+      "p_value": 0.01924359168255174,
+      "mean_diff": 0.19734892507043886,
+      "significativo": true,
+      "interpretacion": "**LSTM vs SARIMA:** DM = 2.341, p = 0.0192, Δmedia = +0.1973 → **Diferencia significativa**. **SARIMA** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "LSTM",
+      "model_b": "TFT",
+      "statistic": -3.356996851236866,
+      "p_value": 0.0007879400995227659,
+      "mean_diff": -2.88791697699489,
+      "significativo": true,
+      "interpretacion": "**LSTM vs TFT:** DM = -3.357, p = 0.0008, Δmedia = -2.8879 → **Diferencia significativa**. **LSTM** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "N-BEATS",
+      "statistic": 0.9003602364914689,
+      "p_value": 0.3679285745375691,
+      "mean_diff": 0.14724834097472234,
+      "significativo": false,
+      "interpretacion": "**LightGBM vs N-BEATS:** DM = 0.900, p = 0.3679 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.1472) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "Prophet",
+      "statistic": 0.09294684824160096,
+      "p_value": 0.9259457872937746,
+      "mean_diff": 0.01759341761019086,
+      "significativo": false,
+      "interpretacion": "**LightGBM vs Prophet:** DM = 0.093, p = 0.9259 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.0176) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "SARIMA",
+      "statistic": 1.1896400882168057,
+      "p_value": 0.2341878824271726,
+      "mean_diff": 0.22307412634090656,
+      "significativo": false,
+      "interpretacion": "**LightGBM vs SARIMA:** DM = 1.190, p = 0.2342 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.2231) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "LightGBM",
+      "model_b": "TFT",
+      "statistic": -3.3391182579410343,
+      "p_value": 0.0008404477715611147,
+      "mean_diff": -2.8621917757244226,
+      "significativo": true,
+      "interpretacion": "**LightGBM vs TFT:** DM = -3.339, p = 0.0008, Δmedia = -2.8622 → **Diferencia significativa**. **LightGBM** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "Prophet",
+      "statistic": -0.5481808473272101,
+      "p_value": 0.5835677317575227,
+      "mean_diff": -0.12965492336453152,
+      "significativo": false,
+      "interpretacion": "**N-BEATS vs Prophet:** DM = -0.548, p = 0.5836 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (-0.1297) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "SARIMA",
+      "statistic": 0.5598716441238045,
+      "p_value": 0.5755669913064665,
+      "mean_diff": 0.0758257853661842,
+      "significativo": false,
+      "interpretacion": "**N-BEATS vs SARIMA:** DM = 0.560, p = 0.5756 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.0758) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "N-BEATS",
+      "model_b": "TFT",
+      "statistic": -3.245606555673081,
+      "p_value": 0.0011720069417182621,
+      "mean_diff": -3.0094401166991442,
+      "significativo": true,
+      "interpretacion": "**N-BEATS vs TFT:** DM = -3.246, p = 0.0012, Δmedia = -3.0094 → **Diferencia significativa**. **N-BEATS** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "Prophet",
+      "model_b": "SARIMA",
+      "statistic": 1.0176007043851618,
+      "p_value": 0.30886775247347753,
+      "mean_diff": 0.2054807087307157,
+      "significativo": false,
+      "interpretacion": "**Prophet vs SARIMA:** DM = 1.018, p = 0.3089 → **No se rechaza** H₀ de igual precisión predictiva. La diferencia media (+0.2055) no es estadísticamente significativa."
+    },
+    {
+      "model_a": "Prophet",
+      "model_b": "TFT",
+      "statistic": -3.8383456484873046,
+      "p_value": 0.00012386603871372692,
+      "mean_diff": -2.879785193334613,
+      "significativo": true,
+      "interpretacion": "**Prophet vs TFT:** DM = -3.838, p = 0.0001, Δmedia = -2.8798 → **Diferencia significativa**. **Prophet** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    },
+    {
+      "model_a": "SARIMA",
+      "model_b": "TFT",
+      "statistic": -3.362894499218214,
+      "p_value": 0.0007712983429679632,
+      "mean_diff": -3.085265902065329,
+      "significativo": true,
+      "interpretacion": "**SARIMA vs TFT:** DM = -3.363, p = 0.0008, Δmedia = -3.0853 → **Diferencia significativa**. **SARIMA** es significativamente más preciso (H₀: igual accuracy; corrección HAC para autocorrelación)."
+    }
+  ],
+  "dm_source": "errores por paso (pérdida cuadrática)"
+}

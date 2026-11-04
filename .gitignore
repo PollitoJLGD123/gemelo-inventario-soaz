@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# PyInstaller output (rebuild with construir_exe.ps1)
+build/
+dist/
+*.exe
+
+# Secrets and local environment
+.env
+.env.*
+
+# Streamlit local secrets
+.streamlit/secrets.toml
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code personal settings
+.claude/settings.local.json
+
+## models
+models/
+
+# Dataset Favorita (varios GB) y el panel ya recortado
+data/favorita_grocery/*.csv
+data/favorita_grocery/cache/
+
+data/
