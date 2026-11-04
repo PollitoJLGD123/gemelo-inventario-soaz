@@ -1,0 +1,199 @@
+{
+  "fuente": "sintetico",
+  "n_sku_alcance": 24,
+  "fig1": {
+    "demanda_no_registrada_pct": 11.480676417492539,
+    "estimadores": {
+      "ingenuo": {
+        "sesgo_medio": -7.166250000000001,
+        "sesgo_absoluto_medio": 7.166250000000001,
+        "peor_sesgo": -22.22
+      },
+      "exclusion": {
+        "sesgo_medio": -0.80625,
+        "sesgo_absoluto_medio": 0.90375,
+        "peor_sesgo": -3.0
+      },
+      "em": {
+        "sesgo_medio": 0.17791666666666664,
+        "sesgo_absoluto_medio": 0.72625,
+        "peor_sesgo": -2.4
+      }
+    },
+    "subestimacion_ss_por_familia_pct": {
+      "Bebida": 54.328630811228365,
+      "Abarrote seco": 61.83026084803933,
+      "Lácteo y perecible": 44.586674573000074,
+      "Limpieza y hogar": 39.61503795010587
+    },
+    "subestimacion_ss_total_pct": 52.1041158740141,
+    "n_sku_por_familia": {
+      "Bebida": 9,
+      "Abarrote seco": 5,
+      "Lácteo y perecible": 5,
+      "Limpieza y hogar": 5
+    }
+  },
+  "fig2": {
+    "sku_mostrado": "SKU-044",
+    "metricas_sku": {
+      "SKU": "SKU-044",
+      "Clase": "A",
+      "Stock medio real (u)": 198.8,
+      "Stock medio simulado (u)": 219.1,
+      "Error nivel medio (%)": 10.2,
+      "MAPE stock (%)": 34.1,
+      "Cobertura de banda (%)": 98.9,
+      "Días ruptura real": 5,
+      "Días ruptura simulado": 4.6,
+      "Δ días ruptura": 0.4,
+      "Órdenes reales": 4,
+      "Órdenes simuladas": 3.4,
+      "Error órdenes (%)": 14.0
+    },
+    "resumen": {
+      "dia_corte": 360,
+      "dias_prueba": 90,
+      "n_replicas": 50,
+      "n_sku": 24,
+      "metodo_demanda": "em",
+      "error_nivel": 13.4,
+      "mape_stock": 48.395833333333336,
+      "mape_irreducible": 58.252154797398454,
+      "mape_relativo": 0.8307990236868404,
+      "pisos": {
+        "mape": 58.252154797398454,
+        "nivel": 15.514144388800274,
+        "dias_ruptura": 4.479166666666667,
+        "error_ordenes": 6.77703373015873,
+        "cobertura": 82.20973782771536,
+        "n_pares": 8
+      },
+      "ruptura_relativa": 1.0409302325581395,
+      "cobertura_relativa": 1.053504555808656,
+      "ordenes_relativo": 1.343385178408051,
+      "cobertura_banda": 86.60833333333333,
+      "delta_dias_ruptura": 4.6625000000000005,
+      "error_ordenes": 9.104166666666666,
+      "veredicto": true,
+      "n_criterios_cumplidos": 5,
+      "n_criterios": 5
+    },
+    "criterios": [
+      {
+        "Criterio": "Nivel medio de stock",
+        "Métrica": "Error del stock medio, clase A",
+        "Obtenido": 13.4,
+        "Umbral": 20.0,
+        "Cumple": true,
+        "unidad": "%",
+        "Por qué esta métrica": "El nivel medio es estable frente al desfase de las llegadas; mide si el gemelo mantiene tanto inventario como el negocio real."
+      },
+      {
+        "Criterio": "Cobertura, relativa al techo",
+        "Métrica": "Cobertura del gemelo / cobertura alcanzable (82%)",
+        "Obtenido": 1.05,
+        "Umbral": 0.9,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "Un modelo estocástico no debe acertar el valor de un día, debe acertar el RANGO. Pero una banda del 95% no cubre el 95% de los días: los niveles de stock de días consecutivos están autocorrelacionados, así que el techo alcanzable es 82%, no 95%.",
+        "mayor_es_mejor": true,
+        "absoluto": "86.6%"
+      },
+      {
+        "Criterio": "MAPE relativo al piso",
+        "Métrica": "MAPE del gemelo / MAPE irreducible (58%)",
+        "Obtenido": 0.83,
+        "Umbral": 1.2,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "El MAPE absoluto no se puede interpretar en un proceso de diente de sierra. Contra el piso del propio motor, sí."
+      },
+      {
+        "Criterio": "Días de ruptura, relativo al piso",
+        "Métrica": "Δ días del gemelo / Δ días irreducible (4.5 d)",
+        "Obtenido": 1.04,
+        "Umbral": 1.2,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "El conteo de rupturas en 90 días es ruidoso: dos réplicas del propio gemelo difieren en 4.5 días en promedio. Exigir menos que eso es exigir lo imposible.",
+        "absoluto": "4.7 días"
+      },
+      {
+        "Criterio": "Órdenes emitidas",
+        "Métrica": "Error relativo medio",
+        "Obtenido": 9.1,
+        "Umbral": 15.0,
+        "Cumple": true,
+        "unidad": "%",
+        "Por qué esta métrica": "Verifica que el gemelo reproduce la REGLA DE DECISIÓN del negocio, no solo la física del almacén."
+      }
+    ]
+  },
+  "fig3": {
+    "puntos": [
+      {
+        "nivel": 0.9,
+        "costo_miles": 33.8340202926469,
+        "ic95": [
+          32.53368867947787,
+          35.134351905815926
+        ],
+        "fill_rate": 97.1302856512164
+      },
+      {
+        "nivel": 0.95,
+        "costo_miles": 32.68067686989322,
+        "ic95": [
+          31.54166240675918,
+          33.81969133302726
+        ],
+        "fill_rate": 97.60669966387667
+      },
+      {
+        "nivel": 0.975,
+        "costo_miles": 32.37251609663531,
+        "ic95": [
+          31.286902578486576,
+          33.45812961478404
+        ],
+        "fill_rate": 97.83750199287265
+      },
+      {
+        "nivel": 0.99,
+        "costo_miles": 32.15939516532267,
+        "ic95": [
+          31.274143488310006,
+          33.04464684233534
+        ],
+        "fill_rate": 98.22551612925554
+      }
+    ],
+    "politica": "(s,Q) por defecto del motor",
+    "dias": 90
+  },
+  "fig4": {
+    "sku": "SKU-060",
+    "familia": "Lácteo y perecible",
+    "costo_sku": 16300.983765601657,
+    "costo_referencia": 1732.8892510115068,
+    "error_eficiencia": 3.637978807091713e-12,
+    "n_coaliciones": 512,
+    "contribuciones": {
+      "demanda_media": 6267.403783150512,
+      "demanda_desv": -655.7418075217836,
+      "lead_time_medio": 248.2473642751527,
+      "lead_time_desv": 1005.1237228466471,
+      "costo_unitario": 1246.0429876045976,
+      "costo_pedido": 0.0,
+      "nivel_servicio_z": 0.0,
+      "cantidad_pedido": -5084.860726436455,
+      "vida_util": 11541.879190671476
+    },
+    "fidelidad_sustituto": {
+      "error_absoluto_medio": 30.541666666666668,
+      "correlacion": 0.8713459541804638,
+      "apto": true
+    }
+  }
+}

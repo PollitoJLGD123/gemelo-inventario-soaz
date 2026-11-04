@@ -1,0 +1,209 @@
+{
+  "fuente": "favorita",
+  "n_sku_alcance": 50,
+  "fig1": {
+    "demanda_no_registrada_pct": 24.623599067731163,
+    "estimadores": {
+      "ingenuo": {
+        "sesgo_medio": -26.09,
+        "sesgo_absoluto_medio": 26.09,
+        "peor_sesgo": -47.43
+      },
+      "exclusion": {
+        "sesgo_medio": -2.133,
+        "sesgo_absoluto_medio": 3.0041999999999995,
+        "peor_sesgo": -21.36
+      },
+      "em": {
+        "sesgo_medio": -0.3632,
+        "sesgo_absoluto_medio": 2.5308,
+        "peor_sesgo": -17.35
+      }
+    },
+    "subestimacion_ss_por_familia_pct": {
+      "PRODUCE": 69.08302803780192,
+      "BEVERAGES": 51.513706903782094,
+      "POULTRY": 60.43571515391457,
+      "PREPARED FOODS": 54.88699443984626,
+      "BREAD/BAKERY": 71.04899422303693,
+      "DAIRY": 74.29195804089436,
+      "MEATS": 67.77167236310275,
+      "EGGS": 71.6063399407059,
+      "GROCERY I": 64.49824899113227
+    },
+    "subestimacion_ss_total_pct": 66.07166748623598,
+    "n_sku_por_familia": {
+      "PRODUCE": 26,
+      "BEVERAGES": 8,
+      "POULTRY": 7,
+      "PREPARED FOODS": 1,
+      "BREAD/BAKERY": 2,
+      "DAIRY": 1,
+      "MEATS": 2,
+      "EGGS": 2,
+      "GROCERY I": 1
+    }
+  },
+  "fig2": {
+    "sku_mostrado": "IT-1473404",
+    "metricas_sku": {
+      "SKU": "IT-1473404",
+      "Clase": "A",
+      "Stock medio real (u)": 794.4,
+      "Stock medio simulado (u)": 579.0,
+      "Error nivel medio (%)": 27.1,
+      "MAPE stock (%)": 86.4,
+      "Cobertura de banda (%)": 89.9,
+      "Días ruptura real": 24,
+      "Días ruptura simulado": 37.4,
+      "Δ días ruptura": 13.4,
+      "Órdenes reales": 6,
+      "Órdenes simuladas": 6.4,
+      "Error órdenes (%)": 7.0
+    },
+    "resumen": {
+      "dia_corte": 360,
+      "dias_prueba": 90,
+      "n_replicas": 50,
+      "n_sku": 50,
+      "metodo_demanda": "em",
+      "error_nivel": 29.396,
+      "mape_stock": 77.906,
+      "mape_irreducible": 101.28541763648816,
+      "mape_relativo": 0.7691729156866733,
+      "pisos": {
+        "mape": 101.28541763648816,
+        "nivel": 26.89605677195458,
+        "dias_ruptura": 7.92,
+        "error_ordenes": 11.124900793650795,
+        "cobertura": 90.44943820224718,
+        "n_pares": 8
+      },
+      "ruptura_relativa": 1.1845959595959596,
+      "cobertura_relativa": 0.9331180124223601,
+      "ordenes_relativo": 2.621866076922391,
+      "cobertura_banda": 84.39999999999998,
+      "delta_dias_ruptura": 9.382,
+      "error_ordenes": 29.168000000000003,
+      "veredicto": false,
+      "n_criterios_cumplidos": 3,
+      "n_criterios": 5
+    },
+    "criterios": [
+      {
+        "Criterio": "Nivel medio de stock",
+        "Métrica": "Error del stock medio, clase A",
+        "Obtenido": 29.4,
+        "Umbral": 20.0,
+        "Cumple": false,
+        "unidad": "%",
+        "Por qué esta métrica": "El nivel medio es estable frente al desfase de las llegadas; mide si el gemelo mantiene tanto inventario como el negocio real."
+      },
+      {
+        "Criterio": "Cobertura, relativa al techo",
+        "Métrica": "Cobertura del gemelo / cobertura alcanzable (90%)",
+        "Obtenido": 0.93,
+        "Umbral": 0.9,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "Un modelo estocástico no debe acertar el valor de un día, debe acertar el RANGO. Pero una banda del 95% no cubre el 95% de los días: los niveles de stock de días consecutivos están autocorrelacionados, así que el techo alcanzable es 90%, no 95%.",
+        "mayor_es_mejor": true,
+        "absoluto": "84.4%"
+      },
+      {
+        "Criterio": "MAPE relativo al piso",
+        "Métrica": "MAPE del gemelo / MAPE irreducible (101%)",
+        "Obtenido": 0.77,
+        "Umbral": 1.2,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "El MAPE absoluto no se puede interpretar en un proceso de diente de sierra. Contra el piso del propio motor, sí."
+      },
+      {
+        "Criterio": "Días de ruptura, relativo al piso",
+        "Métrica": "Δ días del gemelo / Δ días irreducible (7.9 d)",
+        "Obtenido": 1.18,
+        "Umbral": 1.2,
+        "Cumple": true,
+        "unidad": "×",
+        "Por qué esta métrica": "El conteo de rupturas en 90 días es ruidoso: dos réplicas del propio gemelo difieren en 7.9 días en promedio. Exigir menos que eso es exigir lo imposible.",
+        "absoluto": "9.4 días"
+      },
+      {
+        "Criterio": "Órdenes emitidas",
+        "Métrica": "Error relativo medio",
+        "Obtenido": 29.2,
+        "Umbral": 15.0,
+        "Cumple": false,
+        "unidad": "%",
+        "Por qué esta métrica": "Verifica que el gemelo reproduce la REGLA DE DECISIÓN del negocio, no solo la física del almacén."
+      }
+    ]
+  },
+  "fig3": {
+    "puntos": [
+      {
+        "nivel": 0.9,
+        "costo_miles": 607.1962058391928,
+        "ic95": [
+          594.6322117976185,
+          619.760199880767
+        ],
+        "fill_rate": 94.62117729230127
+      },
+      {
+        "nivel": 0.95,
+        "costo_miles": 638.7086279660729,
+        "ic95": [
+          628.5342084872865,
+          648.8830474448592
+        ],
+        "fill_rate": 95.66412850353707
+      },
+      {
+        "nivel": 0.975,
+        "costo_miles": 717.7115990738058,
+        "ic95": [
+          706.3436398863445,
+          729.0795582612672
+        ],
+        "fill_rate": 96.09685321100156
+      },
+      {
+        "nivel": 0.99,
+        "costo_miles": 797.1384836239766,
+        "ic95": [
+          787.0408203100201,
+          807.2361469379332
+        ],
+        "fill_rate": 96.61243692969161
+      }
+    ],
+    "politica": "(s,Q) por defecto del motor",
+    "dias": 90
+  },
+  "fig4": {
+    "sku": "IT-1239897",
+    "familia": "POULTRY",
+    "costo_sku": 75263.68092532195,
+    "costo_referencia": 6648.468411957174,
+    "error_eficiencia": 1.4551915228366852e-11,
+    "n_coaliciones": 512,
+    "contribuciones": {
+      "demanda_media": 8798.963433373341,
+      "demanda_desv": -2120.0329179432283,
+      "lead_time_medio": 159.15456141756113,
+      "lead_time_desv": 22303.86173929012,
+      "costo_unitario": 2720.571597391,
+      "costo_pedido": 0.0,
+      "nivel_servicio_z": -1.8666296022101506e-11,
+      "cantidad_pedido": -7230.580832446816,
+      "vida_util": 43983.274932282795
+    },
+    "fidelidad_sustituto": {
+      "error_absoluto_medio": 33.036,
+      "correlacion": 0.6577528845308173,
+      "apto": false
+    }
+  }
+}
